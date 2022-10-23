@@ -11,17 +11,24 @@
 <body>
     <div id="app">
         {{ message }}
+        <input v-model="message" type="text" />
+        <button @click="reverseMessage">翻转消息</button>
     </div>
     <script type="text/javascript">
         data={message:'hello vue'};
         var vm = new Vue({
             el: "#app",
-            data: data
+            data: data,
+            methods: {
+                reverseMessage:function() {
+                    this.message=this.message.split('').reverse().join('');
+                }
+            },
         });
         vm.$watch('message',function(newDate,oldDate){
             console.log(newDate,oldDate);
         })
-        data.message='aaa';
+        // data.message='aaa';
 
         
     </script>
