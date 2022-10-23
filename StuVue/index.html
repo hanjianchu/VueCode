@@ -14,6 +14,11 @@
         <input v-model="message" type="text" />
         <button @click="reverseMessage">翻转消息</button>
     </div>
+    <div id="app-1">
+        <span v-bind:title="msg">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+    </div>
     <script type="text/javascript">
         data={message:'hello vue'};
         var vm = new Vue({
@@ -30,6 +35,12 @@
         })
         // data.message='aaa';
 
+        var app1 = new Vue({
+            el:'#app-1',
+            data:{
+                msg:'页面加载于 ' + new Date().toLocaleString()
+            }
+        });
         
     </script>
 </body>
